@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:ecommerce_app/components/shoe_tile.dart';
 import 'package:flutter/material.dart';
 
 class ShopPage extends StatefulWidget {
@@ -46,25 +47,36 @@ class _ShopPageState extends State<ShopPage> {
        ),
 
        //HOt picks
-       Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: const [
-        Text(
-          "Hot Picks ",
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 24
-          ),
-          ),
-        Text(
-          "See all",
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            color:Colors.blue
-          ),
-          )
-       ],)
-      ],
+       Padding(
+         padding: const EdgeInsets.symmetric(horizontal: 25),
+         child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: const [
+          Text(
+            "Hot Picks ",
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 24
+            ),
+            ),
+          Text(
+            "See all",
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color:Colors.blue
+            ),
+            )
+         ],),
+       ),
+       const SizedBox(height: 10),
+
+       Expanded(child: ListView.builder(
+         itemBuilder: (BuildContext context, int index) {
+           return ShoeTile();
+         },
+       ),)
+      ],      
     );
   }
 }
